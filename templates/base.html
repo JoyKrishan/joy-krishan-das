@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title Block HERE-->
+    <title> {% block page_title %}
+                 Joy Krishan Das
+            {% endblock %} </title>
+    <link rel="stylesheet" href= "{% static 'styles.css' %}"> <!-- base css if required -->
+    <link rel="stylesheet" href= "{% static 'header.css' %}"> <!-- base css if required -->
+    {%block css_files %}{% endblock %} <!-- App- wise CSS-->>
+</head>
+<body>
+    {% include  'includes/header.html' %}
+    {% block content %} {% endblock %}
+    {% block js_files %} {% endblock %}
+</body>
+</html>

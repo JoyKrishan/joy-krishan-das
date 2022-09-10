@@ -19,51 +19,46 @@
                             <img src="{% static 'myblog/img/Joy_image1.jpg' %}" alt="Logo" width="40%" height="40%" class= "img-thumbnail">
                             <h1 class="tm-site-name">{{name}}</h1>
                         </div>
-                        <nav class="tm-main-nav">  
-                            <ul class="tm-main-nav-ul">
-                                <li class="tm-nav-item">
-                                    <a href="#welcome" class="tm-nav-item-link">Welcome</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#about" class="tm-nav-item-link">About Us</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#galleryone" class="tm-nav-item-link">Gallery One</a>
-                                </li>
+                        <div style="text-align: center">
+                            
+                        <p>
+                            {% for info in intro_links.currentPosition%}
+                                {{info}}
+                                <br>
+                            {% endfor %}
+                          </p>
+                          <p style="color:black">
+                            Email: joykrishan10@gmail.com
+                          </p>
+                          <div  style="text-align:center">
+                          {% for key, value in intro_links.items %}
+                            {% if key == "currentPosition" %}
+                                {{intro_links.key}}
+                            {% elif forloop.last %}
+                                <span class= 'it-links' ><a class= 'it-links-link' href="{{value}}" target ="_blank">{{key}}</a> </span>
+                            {% else %}
+                                <span class= 'it-links' ><a class= 'it-links-link' href="{{value}}" target ="_blank">{{key}}</a> </span> /
+                            {% endif %}
+                          {% endfor %}
+                          </div>
                         
-                        
-                                <li class="tm-nav-item">
-                                    <a href="#contact" class="tm-nav-item-link">Contact Us</a>
-                                </li>
-                            </ul>
-                        </nav>                                         
+                        </div>
+                        <!--{% include 'myblog/includes/header.html'%}-->                                       
                     </div> <!-- Left column: logo and menu -->
                     
                     <!-- Right column: content -->
                     <div class="tm-right-column">
                         
-                        <figure>
-                            <img src="img/neaty-01.jpg" alt="Header image" class="img-fluid">    
-                        </figure>
 
                         <div class="tm-content-div">
-                            <section>
-                            <div class= "float-right">
-                                {% include 'myblog/includes/header.html' %} 
-                                </div>
-                            </section>
                             <!-- Welcome section -->
                             <section id="welcome" class="tm-section">
                                 <header>
-                                    <h2 class="tm-blue-text tm-welcome-title tm-margin-b-45">Hi, there!</h2>
+                                    <h4 class="tm-blue-text tm-welcome-title ">Hi, there!</h4>
                                 </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum convallis, est ac convallis ornare,
-                                     libero mi molestie sem, vitae interdum lorem lorem sed mauris. Suspendisse convallis lacus ac fringilla porttitor. Curabitur placerat mollis nibh. 
-                                    Quisque malesuada orci a commodo rutrum. Cras eros ex, sodales non ligula ac, 
-                                    iaculis faucibus est. Sed venenatis condimentum erat, et feugiat nisl. Sed massa metus, vestibulum a efficitur ut, elementum in ex. Nunc molestie lobortis eros ut feugiat.
-                                     Maecenas molestie tortor ut nisi mattis rhoncus. Fusce volutpat ipsum convallis turpis eleifend tempus. Cras vitae aliquet est.</p>
+                                <p style="text-align: justify">{{introduction|safe}}</p>
                             </section>
-                            <!-- About section -->
+                            <!-- About section 
                             <section id="about" class="tm-section">
                                 <div class="row">                                                                
                                     <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 push-lg-4 push-md-5">
@@ -80,68 +75,88 @@
                                         <img src="img/neaty-02.jpg" alt="Image" class="img-fluid">    
                                     </div>  
                                 </div>                            
-                            </section>  
+                            </section>  -->
 
-                            <!-- Gallery One section -->     
-                            <section id="galleryone" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Gallery One</h2></header>
-                                <div class="tm-gallery-container tm-gallery-1">
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-03.jpg"><img src="img/neaty-03.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-04.jpg"><img src="img/neaty-04.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-05.jpg"><img src="img/neaty-05.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-06.jpg"><img src="img/neaty-06.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-07.jpg"><img src="img/neaty-07.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>                                    
-                                </div>
+                            <section>
+                                <header>
+                                    <strong><h3 class="tm-blue-text tm-margin-b-15">Publications</h3></strong>
+                                </header>
+                                <ol>
+                                    {% for pub in publications%}
+                                        <li>
+                                            <p style="text-align: justify"><strong>{{pub.name}}</strong>
+                                                <br>
+                                                {% for author in pub.author %}
+                                                   
+                                                    {% if author == name %}
+                                                        
+                                                        <strong>{{author}}</strong>, 
+                                                
+                                                {% else %}
+                                                        {{author}}, 
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {{pub.proceeding|safe}}
+                                            </br>
+                                            [<a href="{{pub.paper}}" target="\_blank">Paper</a>]
+                                            </p>
+                                        </li>
+
+                                    {% endfor %}
+                                    
+                                </ol>
+
                             </section>
 
-                            <!-- Second Gallery section -->     
-                            <section id="secondgallery" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Second Gallery</h2></header>
-                                <div class="tm-gallery-container tm-gallery-2">
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-08.jpg"><img src="img/neaty-08.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-09.jpg"><img src="img/neaty-09.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-10.jpg"><img src="img/neaty-10.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>                                    
-                                </div>
+                            <section>
+                                <header>
+                                    <strong><h3 class="tm-blue-text tm-margin-b-15">Professional Experience</h3></strong>
+                                </header>
+                                <ul>
+                                   {% for exp in experience%}
+                                    <li><strong> {{exp.0}} [ {{exp.2}} ] </strong>
+                                    </br>
+                                    
+                                    {{exp.1}}</br>
+                                    {{exp.3}}
+                                    </li>
+                                </br>
+                                    {% endfor %}
+                                
+                                </ul>
+
                             </section>
 
-                            <!-- Third Gallery section -->     
-                            <section id="thirdgallery" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Third Gallery</h2></header>
-                                <div class="tm-gallery-container tm-gallery-3">
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-11.jpg"><img src="img/neaty-11.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-12.jpg"><img src="img/neaty-12.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-13.jpg"><img src="img/neaty-13.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-14.jpg"><img src="img/neaty-14.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>                                    
-                                </div>
+                            
+                            <section>
+                                <header>
+                                    <strong><h3 class="tm-blue-text tm-margin-b-15">Education</h3></strong>
+                                </header>
+                                <ul>
+                                   {% for edu in education %}
+                                   
+                                    <li><strong> {{edu.0}} [ {{edu.4}} ] </strong>
+                                    </br>
+                                    
+                                    {{edu.1}}</br>
+                                    CGPA <strong>{{edu.2}}</strong> (On a scale of <strong>4.00</strong>)
+                                    </br>
+                                    {{edu.3}}
+                                    </li>
+                                </br>
+                                    {% endfor %}
+                                
+                                </ul>
+
                             </section>
 
+                          
+
+
+                            
                             <!-- Contact Us section -->
                             <section id="contact" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Contact Us</h2></header>
+                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Contact Me</h2></header>
 
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -160,22 +175,20 @@
                                     </div>
                                     
                                     <div class="col-lg-6 tm-contact-right">
-                                        <p>
+                                       <!--<p>
                                         Nullam vivera fermentum purus id blandit. Phasellus lacus mi, porta vel sodales nec, faucibus non eros. Nulla at quam vel risus laoreet tincidunt in in sem.    
                                         </p>
                                         <address>
                                             11/22 Etiam mauris erat,<br>
-                                            Vestibulum eu augue nec, 10220<br>
+                                            Vest ibulum eu augue nec, 10220<br>
                                             Nam consequat
-                                        </address>
+                                        </address>-->
                                     </div>
                                 </div>
                                 
                             </section>
                             <footer>
-                                <p class="tm-copyright-p">Copyright &copy; <span class="tm-current-year">2017</span> Your Company 
-                                
-                                | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+                                <p class="tm-copyright-p">Copyright &copy;  Joy Krishan Das (Updated on: {{updatedOn}})</p>
                             </footer>
                         </div>  
                         
@@ -186,6 +199,8 @@
     {% endblock %}            
         <!-- load JS files -->
     {% block js_files %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
         <script src="{% static 'myblog/js/jquery-1.11.3.min.js' %}"></script>             <!-- jQuery (https://jquery.com/download/) -->
         <script src="{% static 'myblog/js/jquery.magnific-popup.min.js' %}"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
         <script src="{% static 'myblog/js/jquery.singlePageNav.min.js' %}"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->

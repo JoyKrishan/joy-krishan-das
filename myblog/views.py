@@ -14,11 +14,11 @@ class PublicationType(Enum):
 
 __intro_links = {
     "currentPosition": ["Associate Software Engineer", "Therap (BD) Ltd"],
-    "Resume": "Hello",
+    "Resume": "https://drive.google.com/file/d/16R1hgl5fPDWq21f9MuO-PBDVvmVA6H-A/view?usp=sharing",
     "Google Scholar": "https://scholar.google.com/citations?user=QxAODxAAAAAJ&hl=en",
     "Research Gate": "https://www.researchgate.net/profile/Joy-Das-7",
     "GitHub": "https://github.com/JoyKrishan",
-    "LinkedIn": "Hello"
+    "LinkedIn": "https://www.linkedin.com/in/joy-krishan-das-463475167/"
 }
 
 __name = "Joy Krishan Das"
@@ -30,9 +30,7 @@ __certifications = {
 } # Name, links
 
 
-__introduction =  """I'm Joy Krishan Das, and I graduated from BRAC University on 2020 with Highest Distinction. My research interest relies broadly in the area of machine
- learning, signal processing and natural language processing. Previously, I worked under the supervision of  <a href = "http://home.sejong.ac.kr/~piran/"> Md. Jalil Piran </a> and  <a href = "https://www.bracu.ac.bd/about/people/amitabha-chakrabarty-phd"> Amitabha Chakraborty </a>. In addition, I was a volunteer
- teacher for Stanford University's Code in Place program and mentor for Natural Language Processing Specilization offered by DeepLearning.AI<p>"""
+__introduction =  """I'm Joy Krishan Das, and I graduated from BRAC University in 2020 with Highest Distinction. My research interest relies broadly on the area of machine learning, signal processing, and natural language processing. Previously, I worked under the supervision of  <a href = "http://home.sejong.ac.kr/~piran/"> Md. Jalil Piran </a> and  <a href = "https://www.bracu.ac.bd/about/people/amitabha-chakrabarty-phd"> Amitabha Chakraborty.</a> In addition, I was a volunteer teacher for Stanford University's Code in Place program and mentor for Natural Language Processing Specialization offered by DeepLearning.AI.<p>"""
 
 __experience = [['Associate Software Engineer', 'Therap(BD) Ltd', 'Sep 2021 - Present','Dhaka, Bangladesh'],
                 ['Lecturer (part-time)', 'Department of Computer Science and Engineering, BRAC University', 'Oct 2020 - Feb 2021', 'Dhaka, Bangladesh'],

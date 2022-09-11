@@ -13,7 +13,7 @@ class PublicationType(Enum):
     book_chapters = 3 
 
 __intro_links = {
-    "currentPosition": ["Associate Software Engineer", "Therap (BD) Ltd"],
+    "currentPosition": ["Associate Software Engineer, QA", "Therap (BD) Ltd"],
     "Resume": "https://drive.google.com/file/d/16R1hgl5fPDWq21f9MuO-PBDVvmVA6H-A/view?usp=sharing",
     "Google Scholar": "https://scholar.google.com/citations?user=QxAODxAAAAAJ&hl=en",
     "Research Gate": "https://www.researchgate.net/profile/Joy-Das-7",
@@ -32,7 +32,7 @@ __certifications = {
 
 __introduction =  """I'm Joy Krishan Das, and I graduated from BRAC University in 2020 with Highest Distinction. My research interest relies broadly on the area of machine learning, signal processing, and natural language processing. Previously, I worked under the supervision of  <a href = "http://home.sejong.ac.kr/~piran/"> Md. Jalil Piran </a> and  <a href = "https://www.bracu.ac.bd/about/people/amitabha-chakrabarty-phd"> Amitabha Chakraborty.</a> In addition, I was a volunteer teacher for Stanford University's Code in Place program and mentor for Natural Language Processing Specialization offered by DeepLearning.AI.<p>"""
 
-__experience = [['Associate Software Engineer', 'Therap(BD) Ltd', 'Sep 2021 - Present','Dhaka, Bangladesh'],
+__experience = [['Associate Software Engineer, QA', 'Therap(BD) Ltd', 'Sep 2021 - Present','Dhaka, Bangladesh'],
                 ['Lecturer (part-time)', 'Department of Computer Science and Engineering, BRAC University', 'Oct 2020 - Feb 2021', 'Dhaka, Bangladesh'],
                 ['Teaching Assistant', 'Department of Computer Science and Engineering, BRAC University', 'Jan 2019 - Apr 2020', 'Dhaka, Bangladesh' ]] # a list of list 
 __news = [] # list of dict
